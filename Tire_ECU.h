@@ -19,6 +19,15 @@
 #include "Tire_ECU_cfg.h"
 
 /***********************************************************************************
+ *                                Type Define
+ ************************************************************************************/
+typedef enum
+{
+    TIRE_OK,
+    TIRE_NOT_OK,
+}EnumTireStatus_t;
+
+/***********************************************************************************
  *                              Functions Deceleration
  ***********************************************************************************/
 
@@ -74,7 +83,43 @@ void Tire_ECU_WriteFaultMailBox(void);
  *******************************************************************************/
 uint8_t * Tire_ECU_ReadMailBox(void);
 
+/*******************************************************************************
+ * Function Name:   Set_TireDefaultPressure
+ *
+ * Description:     Set Default pressure to each tire
+ *
+ * Inputs:          NULL
+ *
+ * Outputs:         NULL
+ *
+ * Return:          NULL
+ *******************************************************************************/
+void Set_TireDefaultPressure(uint8_t DefaultPressure);
 
+/*******************************************************************************
+ * Function Name:   Set_TireDefaultFaultPressure
+ *
+ * Description:     Set Default Fault pressure to each tire
+ *
+ * Inputs:          NULL
+ *
+ * Outputs:         NULL
+ *
+ * Return:          NULL
+ *******************************************************************************/
+void Set_TireDefaultFaultPressure(uint8_t DefaultPressure);
 
+/*******************************************************************************
+ * Function Name:   CheckTireStatus
+ *
+ * Description:     Check if any tire break Limited pressure value
+ *
+ * Inputs:          NULL
+ *
+ * Outputs:         NULL
+ *
+ * Return:          NULL
+ *******************************************************************************/
+EnumTireStatus_t CheckTireStatus(void);
 
 #endif /* TIRE_ECU_H_ */
